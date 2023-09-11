@@ -1,0 +1,112 @@
+#navbar {
+  background-color: var(--cor1);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.426);
+}
+
+#navbar .link-navbar{
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+  font-size: 1.3em;
+}
+
+#navbar .link-navbar .auth{
+  cursor: pointer;
+}
+
+#navbar .link-navbar.auth:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+
+#navbar .link-navbar.active{
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+
+#navbar p{
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#navbar p:hover{
+  text-underline-offset: 0.3em;
+}
+
+#navbar .ctn-list {
+  list-style: none;
+  margin: 0 0 0 1em;
+  padding: 0;
+}
+
+#navbar .ctn-list li {
+  display: inline-block;
+  margin-right: 2em;
+}
+#navbar .componente-usuario:hover p{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+}
+
+#navbar .ctn-profile{
+  position: relative;
+}
+
+#navbar .ctn-profile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar .ctn-profile ul li a{
+  text-decoration: none;
+  font-style: italic;
+  color: white;
+  font-weight: 500;
+}
+
+#navbar .ctn-profile li a:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.3em;
+}
+
+#navbar .ctn-profile .profile-pic{
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5em;
+}
+
+#navbar .ctn-user-options {
+  opacity: 0;
+  position: absolute;
+  top: 110%;
+  width: 65%;
+  background-color: var(--cor1);
+  border: 0.2em solid var(--corBranca);
+  padding: 10px;
+  transition: opacity 0.3s;
+}
+
+#navbar .ctn-profile:hover .ctn-user-options {
+  opacity: 1;
+}
+
+#navbar .seta-para-baixo {
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 13px solid white; 
+  position: absolute;
+  top: -35%; 
+  left: 91%; 
+  transform: translateX(-50%) rotate(180deg);
+}
