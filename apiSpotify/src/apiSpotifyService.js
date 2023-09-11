@@ -2,11 +2,13 @@ import axios from 'axios';
 import  apiSpotifyModel from './apiSpotifyModel.js';
 import  ENUM  from '../../Util/src/enums.js';
 import util from '../../Util/src/util.js';
+import 'dotenv/config';
+
 
 export default class ApiSpotifyService {
-   constructor(clientId, clientSecret, redirectURI) {
-      this.clientId = clientId;
-      this.clientSecret = clientSecret;
+   constructor() {
+      this.clientId =  process.env.REACT_APP_CLIENT_ID;
+      this.clientSecret = process.env.REACT_APP_CLIENT_SECRET;;
       this.redirectURI = "http://localhost:8888/api_spotify/callback" // Your redirect uri;
       this.apiSpotifyModel = new apiSpotifyModel();
       this.authTokenURL = 'https://accounts.spotify.com/api/token';
