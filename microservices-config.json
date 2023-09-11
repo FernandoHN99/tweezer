@@ -1,0 +1,28 @@
+[
+   {
+     "name": "Microsservico aApiSpotify",
+     "command": "npm start",
+     "path": "./apiSpotify"
+   },
+   {
+     "name": "Microsservico barramentoDeEventos",
+     "command": "npm start",
+     "path": "./barramentoDeEventos"
+   },
+   {
+     "name": "Microsservico frontend",
+     "command": "npm start",
+     "path": "./frontend"
+   },
+   {
+      "name": "Microsservico posts",
+      "command": "npm start",
+      "path": "./posts"
+    },
+    {
+      "name": "Microsservico usuarios",
+      "command": "npm start",
+      "path": "./usuarios"
+    }
+ ]
+ 
