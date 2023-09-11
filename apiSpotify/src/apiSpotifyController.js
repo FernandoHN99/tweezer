@@ -7,12 +7,10 @@ import ENUM from '../../Util/src/enums.js';
 const router = express.Router([{ mergeParams: true }]);
 
 class ApiSpotifyController {
-
+   
+   
    constructor() {
-      this.apiSpotifyService = new ApiSpotifyService(
-         "aeeb495577c24f36b0585d3f08ebe46b", // Your client id
-         "663b8df223434395b1854d449cfd2432" // Your secret
-      );
+      this.apiSpotifyService = new ApiSpotifyService();
       this.stateKey = 'spotify_auth_state';
       const scopeImages = 'ugc-image-upload ';
       const scopeSpotifyConnect = 'user-read-playback-state user-modify-playback-state user-read-currently-playing ';
