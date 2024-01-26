@@ -25,7 +25,7 @@ export default class BarramentoService {
       evento.tipoEvento = tipo
       evento[tipo] = dado
       this.bdBarramento[idEvento] = evento;
-      console.log(this.bdBarramento[idEvento])
+      // console.log(this.bdBarramento[idEvento])
       return this.bdBarramento[idEvento];
    }
 

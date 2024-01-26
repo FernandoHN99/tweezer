@@ -21,7 +21,7 @@ class UsuarioController {
   async criar(req, res) {
     try {
       const { tokens, spotify_data } = req.body;
-      console.log('spotify_data: ', spotify_data);
+      // console.log('spotify_data: ', spotify_data);
       const novoUsuario = await this.usuarioService.criarUsuario(spotify_data);
       if (novoUsuario === null) {
         throw new Error("Usuário não criado corretamente.");

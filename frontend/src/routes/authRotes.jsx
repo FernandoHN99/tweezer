@@ -41,7 +41,7 @@ export default function AuthRoutes() {
                const paramsJson = {
                   'idEvento': idEventoParam
                };
-               const response = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_BARRAMENTO}/eventos/auth-user`, undefined, paramsJson, false);
+               const response = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_BARRAMENTO}/eventos/auth-user`, undefined, paramsJson);
                if (response.status) {
                   dispatch(setUsuarioLogado(response.data));
                   setCheckAutenticacao(true);
@@ -54,12 +54,12 @@ export default function AuthRoutes() {
 
       const fetchData = async () => {
          try {
-            const postsHome = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts`, undefined, undefined, false);
+            const postsHome = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts`, undefined, undefined);
             if (!postsHome.status) {
                setHomePosts([])
                return;
             }
-            console.log("postsHome: ", Object.values(postsHome.data));
+            // console.log("postsHome: ", Object.values(postsHome.data));
             setHomePosts(Object.values(postsHome.data));
          } catch (error) {
             console.error('Erro ao pegar todas as publicacoes:', error);

@@ -18,10 +18,6 @@
     {
       "name": "Microsservico usuarios",
       "path": "./usuarios"
-    },
-    {
-      "name": "Microsservico Util",
-      "path": "./Util"
     }
  ]
  

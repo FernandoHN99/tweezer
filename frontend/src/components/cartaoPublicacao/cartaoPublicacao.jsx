@@ -42,11 +42,11 @@ export default function CartaoPublicacao(props) {
         body: { idPublicacao: props.id, idUsuario: usuarioData._id },
       };
       try {
-        const returnInteracao = await util.sendRequestPOST(options.url, options.body, undefined, false);
+        const returnInteracao = await util.sendRequestPOST(options.url, options.body, undefined);
         if (!returnInteracao.status) {
           throw new Error(`Erro na interacao: ${returnInteracao.msg}`);
         }
-        console.log('CURTIDAS: ', returnInteracao.data.curtidas.length);
+        // console.log('CURTIDAS: ', returnInteracao.data.curtidas.length);
       }
       catch (error) {
         console.error('Erro ao curtir:', error);

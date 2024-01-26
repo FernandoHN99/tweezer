@@ -12,7 +12,7 @@ export default class ApiSpotifyModel {
          imagem: entry.trackMetadata.displayImageUri
       }));
 
-      console.log(JSON.stringify(topArtistasGlobais, null, 2));
+      // console.log(JSON.stringify(topArtistasGlobais, null, 2));
       return topArtistasGlobais;
    }
 

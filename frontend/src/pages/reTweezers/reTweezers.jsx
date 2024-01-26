@@ -10,26 +10,26 @@ export default function ReTweezers() {
    const { idPublicacao } = useParams();
    const [postsFilhos, setPostsFilhos] = useState([]);
 
-    useEffect(() => {
+   useEffect(() => {
       const fetchDataPostsFilhos = async () => {
          try {
-           const returnFilhosRelacioandos = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts/posts-filhos/${idPublicacao}`, undefined, undefined, false);
-           if (!returnFilhosRelacioandos.status) {
-             setPostsFilhos([])
-             return;
-           }
-           console.log(returnFilhosRelacioandos.data);
-           setPostsFilhos(returnFilhosRelacioandos.data);
+            const returnFilhosRelacioandos = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts/posts-filhos/${idPublicacao}`, undefined, undefined);
+            if (!returnFilhosRelacioandos.status) {
+               setPostsFilhos([])
+               return;
+            }
+            // console.log(returnFilhosRelacioandos.data);
+            setPostsFilhos(returnFilhosRelacioandos.data);
          } catch (error) {
-           console.error('Erro ao pegar as publicacoes filhas:', error);
+            console.error('Erro ao pegar as publicacoes filhas:', error);
          }
-       };
-         fetchDataPostsFilhos();
-    }, []);
+      };
+      fetchDataPostsFilhos();
+   }, []);
 
    return (
       <div className='ctn-page-re-tweezers'>
-         {postsFilhos.length === 0 ? <Spinner /> : <Home listaPublicacoes={postsFilhos} reTweezer={true}/>}
+         {postsFilhos.length === 0 ? <Spinner /> : <Home listaPublicacoes={postsFilhos} reTweezer={true} />}
       </div>
    );
 }
