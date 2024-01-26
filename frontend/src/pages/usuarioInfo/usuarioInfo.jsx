@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function UsuarioInfo() {
    const usuarioData = useSelector(state => state.loginReducer.usuario);
-   console.log(usuarioData);
+   // console.log(usuarioData);
    const navigate = useNavigate();
 
    const handleBack = () => {

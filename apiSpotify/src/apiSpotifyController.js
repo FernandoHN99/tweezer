@@ -1,8 +1,8 @@
 import express from 'express';
 import querystring from 'querystring';
 import ApiSpotifyService from './apiSpotifyService.js';
-import util from '../../Util/src/util.js';
-import ENUM from '../../Util/src/enums.js';
+import util from './Util/util.js';
+import ENUM from './Util/enums.js';
 
 const router = express.Router([{ mergeParams: true }]);
 
@@ -78,7 +78,6 @@ class ApiSpotifyController {
    async getTopArtists(req, res) {
       try {
          const access_token = req.get('Authorization'); // Ou de onde você estiver obtendo o token
-         // console.log(access_token);
 
          if (!access_token) {
             res.status(400).json({ error: 'Access token not provided.' });
@@ -126,7 +125,6 @@ class ApiSpotifyController {
       try {
          const { headers: { authorization: access_token }} = req;
          const idMusica = req.params.idMusica;
-         // const idMusica = '11dFghVXANMlKmJXsNCbNl';
          if (!access_token || !idMusica) {
             throw new Error('Parametros nao passados corretamente');
          }

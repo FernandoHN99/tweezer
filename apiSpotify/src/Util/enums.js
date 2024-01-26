@@ -13,18 +13,18 @@ export default class ENUM {
       PORTA_POSTS: 5002,
       PORTA_BARRAMENTO: 10000,
       PORTA_API_SPOTIFY: 8888,
-      PORTA_FRONTEND: 5007,
+      PORTA_FRONTEND: 3000,
     };
   }
 
   static get enderecosIP() {
     return {
-      SERVICO_USUARIO: `http://127.0.0.1:${ENUM.portas.PORTA_USUARIO}`,
-      SERVICO_POSTS: `http://127.0.0.1:${ENUM.portas.PORTA_POSTS}`,
-      SERVICO_BARRAMENTO: `http://127.0.0.1:${ENUM.portas.PORTA_BARRAMENTO}`,
-      SERVICO_API_SPOTIFY: `http://127.0.0.1:${ENUM.portas.PORTA_API_SPOTIFY}`,
+      SERVICO_USUARIO: `http://usuarios:${ENUM.portas.PORTA_USUARIO}`,
+      SERVICO_POSTS: `http://posts:${ENUM.portas.PORTA_POSTS}`,
+      SERVICO_BARRAMENTO: `http://barramento:${ENUM.portas.PORTA_BARRAMENTO}`,
+      SERVICO_API_SPOTIFY: `http://apispotify:${ENUM.portas.PORTA_API_SPOTIFY}`,
       SERVICO_API_SPOTIFY2: `http://localhost:${ENUM.portas.PORTA_API_SPOTIFY}`,
-      SERVICO_FRONTEND: `http://127.0.0.1:${ENUM.portas.PORTA_FRONTEND}`,
+      SERVICO_FRONTEND: `http://frontend:${ENUM.portas.PORTA_FRONTEND}`,
     };
   }
 

@@ -10,7 +10,7 @@ class frontendController {
   
    async efetuarLogin(req, res) {
       window.location.href = 'http://localhost:3000/?authenticated=true';
-      console.log(req.body.data);
+      // console.log(req.body.data);
       res.status(200).send({ msg: "Sucesso"});
    }
 

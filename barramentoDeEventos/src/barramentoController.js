@@ -1,7 +1,7 @@
 import express from "express";
 import BarramentoService from './barramentoService.js';
-import util from "../../Util/src/util.js";
-import ENUM from "../../Util/src/enums.js"; // Importa os tipos de eventos
+import util from "./Util/util.js";
+import ENUM from "./Util/enums.js"; // Importa os tipos de eventos
 
 const router = express.Router();
 class BarramentoController {
@@ -42,24 +42,8 @@ class BarramentoController {
 
       switch (tipo) {
          case ENUM.tiposEventos.USUARIO_LOGADO:
-            await util.sendRequestPOST("http://127.0.0.1:5001/usuarios/eventos", dados);
+            await util.sendRequestPOST(`${ENUM.enderecosIP.SERVICO_USUARIO}/usuarios/eventos`, dados); 
             res.status(200).send({evento: evento});
-            break;
-         case tiposEventos.USUARIO:
-            await util.sendRequestPOST("https://127.0.0.1:8888/login", evento);
-            res.status(200).send({ msg: "Sucesso", resultado: req.body });
-            break;
-         case tiposEventos.POST:
-            await util.sendRequestPOST("http://127.0.0.1:5002/eventos", evento);
-            res.status(200).send({ msg: "Sucesso", resultado: req.body });
-            break;
-         case tiposEventos.COMENTARIO:
-            await util.sendRequestPOST("http://127.0.0.1:5003/eventos", evento);
-            res.status(200).send({ msg: "Sucesso", resultado: req.body });
-            break;
-         case tiposEventos.CURTIDA:
-            await util.sendRequestPOST("http://127.0.0.1:5004/eventos", evento);
-            res.status(200).send({ msg: "Sucesso", resultado: req.body });
             break;
          default:
             console.log("Tipo de evento não reconhecido:", evento.tipo);

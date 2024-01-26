@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { UsuarioController, router } from './usuarioController.js';
-import ENUM from '../../Util/src/enums.js';
+import ENUM from './Util/enums.js';
 
 const app = express();
 

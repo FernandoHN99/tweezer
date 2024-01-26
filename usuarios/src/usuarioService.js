@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import Usuario from './usuarioModel.js';
-import ENUM from "../../Util/src/enums.js";
-import util from "../../Util/src/util.js";
+import ENUM from "./Util/enums.js";
+import util from "./Util/util.js";
 
 const app = express();
 app.use(bodyParser.json());
@@ -25,7 +25,7 @@ export default class UsuarioService {
       const novoUsuario = new Usuario(spotifyData.id, spotifyData.display_name, spotifyData.email, spotifyData.images[1]?.url, spotifyData.country, spotifyData.followers?.total, spotifyData.product, spotifyData.external_urls.spotify, spotifyData.href);
       if(novoUsuario.checkUser()){
         this.bdUsuarios[novoUsuario.id] = {...novoUsuario};
-        console.log(this.bdUsuarios)
+        // console.log(this.bdUsuarios)
         return novoUsuario;
       }else{
         return null;

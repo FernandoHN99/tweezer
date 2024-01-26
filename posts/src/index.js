@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 
 import cors from 'cors';
 import { PostsController, router } from './postsController.js';
-import ENUM from '../../Util/src/enums.js';
+import ENUM from './Util/enums.js';
 
 const app = express();
 app.use(cookieParser())

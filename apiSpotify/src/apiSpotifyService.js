@@ -1,13 +1,13 @@
 import axios from 'axios';
-import  apiSpotifyModel from './apiSpotifyModel.js';
-import  ENUM  from '../../Util/src/enums.js';
-import util from '../../Util/src/util.js';
+import apiSpotifyModel from './apiSpotifyModel.js';
+import ENUM from './Util/enums.js';
+import util from './Util/util.js';
 import 'dotenv/config';
 
 
 export default class ApiSpotifyService {
    constructor() {
-      this.clientId =  process.env.REACT_APP_CLIENT_ID;
+      this.clientId = process.env.REACT_APP_CLIENT_ID;
       this.clientSecret = process.env.REACT_APP_CLIENT_SECRET;;
       this.redirectURI = "http://localhost:8888/api_spotify/callback" // Your redirect uri;
       this.apiSpotifyModel = new apiSpotifyModel();
@@ -27,7 +27,7 @@ export default class ApiSpotifyService {
             Authorization: `Basic ${Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64')}`,
          },
       };
-      return await util.sendRequestPOST(authOptions.url, authOptions.data, authOptions.headers, false);
+      return await util.sendRequestPOST(authOptions.url, authOptions.data, authOptions.headers);
    }
 
    async pegarUsuarioInfo(access_token) {
@@ -45,6 +45,7 @@ export default class ApiSpotifyService {
          spotify_data: userData
       };
       return util.sendRequestPOST(`${ENUM.enderecosIP.SERVICO_USUARIO}/usuarios`, dados);
+      // http://usuarios:5001/usuarios
    }
 
    async getTopArtists(access_token) {
@@ -53,7 +54,7 @@ export default class ApiSpotifyService {
             url: 'https://api.spotify.com/v1/me/top/artists',
             headers: { Authorization: `${access_token}` },
          };
-         console.log(options);
+         // console.log(options);
          const response = await axios.get(options.url, { headers: options.headers });
          return response.data;
       } catch (error) {
@@ -66,7 +67,7 @@ export default class ApiSpotifyService {
       const options = {
          url: 'https://charts-spotify-com-service.spotify.com/public/v0/charts'
       };
-      const response = await util.sendRequestGET(options.url, undefined, undefined, false);
+      const response = await util.sendRequestGET(options.url, undefined, undefined);
       if (!response.status) throw new Error(response.msg);
       switch (tipo) {
          case ENUM.tiposParamsTopGlobais.MUSICAS:
@@ -88,8 +89,8 @@ export default class ApiSpotifyService {
          url: `https://api.spotify.com/v1/search?q=${nomeMusica}&type=track&limit=10`,
          headers: { Authorization: `${access_token}` },
       };
-      const response = await util.sendRequestGET(options.url, options.headers, undefined, false);
-      if (!response.status){
+      const response = await util.sendRequestGET(options.url, options.headers, undefined);
+      if (!response.status) {
          throw new Error(response.msg);
       }
       const returnMusciasEncontradas = this.apiSpotifyModel.formatarMusciasEncontradas(response.data);
@@ -101,8 +102,8 @@ export default class ApiSpotifyService {
          url: `https://api.spotify.com/v1/tracks/${idMusica}`,
          headers: { Authorization: `${access_token}` },
       };
-      const response = await util.sendRequestGET(options.url, options.headers, undefined, false);
-      if (!response.status){
+      const response = await util.sendRequestGET(options.url, options.headers, undefined);
+      if (!response.status) {
          throw new Error(response.msg);
       }
       return response.data;

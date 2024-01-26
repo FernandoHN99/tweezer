@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { ApiSpotifyController, router }  from './apiSpotifyController.js';
-import ENUM from '../../Util/src/enums.js';
+import ENUM from './Util/enums.js';
 
 const app = express();
 
