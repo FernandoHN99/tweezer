@@ -19,12 +19,12 @@ export default class ENUM {
 
   static get enderecosIP() {
     return {
-      SERVICO_USUARIO: `http://192.168.15.168:${ENUM.portas.PORTA_USUARIO}`,
-      SERVICO_POSTS: `http://192.168.15.168:${ENUM.portas.PORTA_POSTS}`,
-      SERVICO_BARRAMENTO: `http://192.168.15.168:${ENUM.portas.PORTA_BARRAMENTO}`,
-      SERVICO_API_SPOTIFY: `http://192.168.15.168:${ENUM.portas.PORTA_API_SPOTIFY}`,
+      SERVICO_USUARIO: `http://127.0.0.1:${ENUM.portas.PORTA_USUARIO}`,
+      SERVICO_POSTS: `http://127.0.0.1:${ENUM.portas.PORTA_POSTS}`,
+      SERVICO_BARRAMENTO: `http://127.0.0.1:${ENUM.portas.PORTA_BARRAMENTO}`,
+      SERVICO_API_SPOTIFY: `http://127.0.0.1:${ENUM.portas.PORTA_API_SPOTIFY}`,
       SERVICO_API_SPOTIFY2: `http://localhost:${ENUM.portas.PORTA_API_SPOTIFY}`,
-      SERVICO_FRONTEND: `http://192.168.15.168:${ENUM.portas.PORTA_FRONTEND}`,
+      SERVICO_FRONTEND: `http://127.0.0.1:${ENUM.portas.PORTA_FRONTEND}`,
     };
   }
 

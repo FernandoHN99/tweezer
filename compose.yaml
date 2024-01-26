@@ -1,6 +1,6 @@
 services:
   apispotify:
-    image: api-spotify:latest
+    image: richkelman/api-spotify:latest
     depends_on:
       - barramento
     build: 
@@ -12,7 +12,7 @@ services:
       - tweezer_net
 
   barramento:
-    image: barramento:latest
+    image: richkelman/barramento:latest
     build: 
       context: ./barramentoDeEventos
       dockerfile: ./Dockerfile
@@ -22,7 +22,7 @@ services:
       - tweezer_net
 
   frontend:
-    image: frontend:latest
+    image: richkelman/frontend:latest
     depends_on:
       - apispotify
       - usuarios
@@ -36,7 +36,7 @@ services:
       - tweezer_net
 
   posts:
-    image: posts:latest
+    image: richkelman/posts:latest
     depends_on:
       - barramento
     build: 
@@ -48,7 +48,7 @@ services:
       - tweezer_net
 
   usuarios:
-    image: usuarios:latest
+    image: richkelman/usuarios:latest
     build: 
       context: ./usuarios
       dockerfile: ./Dockerfile
