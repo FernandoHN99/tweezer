@@ -23,7 +23,7 @@ export default function Navbar({ usuarioAutenticado }) {
       try {
          let tokenReact = util.generateRandomString(16);
          dispatch(setTokenReact(tokenReact))
-         const AUTH_URL_WITH_TOKEN = `${ENUM.enderecosIP.SERVICO_API_SPOTIFY2}/api_spotify/login/${tokenReact}`;
+         const AUTH_URL_WITH_TOKEN = `${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/login/${tokenReact}`;
          window.location.href = AUTH_URL_WITH_TOKEN;
       } catch (error) {
          console.log('Erro de rede');

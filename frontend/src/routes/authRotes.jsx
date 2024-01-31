@@ -41,7 +41,7 @@ export default function AuthRoutes() {
                const paramsJson = {
                   'idEvento': idEventoParam
                };
-               const response = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_BARRAMENTO}/eventos/auth-user`, undefined, paramsJson);
+               const response = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_BARRAMENTO}/auth-user`, undefined, paramsJson);
                if (response.status) {
                   dispatch(setUsuarioLogado(response.data));
                   setCheckAutenticacao(true);
@@ -54,7 +54,7 @@ export default function AuthRoutes() {
 
       const fetchData = async () => {
          try {
-            const postsHome = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts`, undefined, undefined);
+            const postsHome = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}`, undefined, undefined);
             if (!postsHome.status) {
                setHomePosts([])
                return;

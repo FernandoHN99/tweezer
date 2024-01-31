@@ -9,7 +9,7 @@ export default class ApiSpotifyService {
    constructor() {
       this.clientId = process.env.REACT_APP_CLIENT_ID;
       this.clientSecret = process.env.REACT_APP_CLIENT_SECRET;;
-      this.redirectURI = "http://localhost:8888/api_spotify/callback" // Your redirect uri;
+      this.redirectURI = 'http://tweezer-apispotify.127.0.0.1.nip.io/callback' // Your redirect uri;
       this.apiSpotifyModel = new apiSpotifyModel();
       this.authTokenURL = 'https://accounts.spotify.com/api/token';
    }
@@ -45,7 +45,6 @@ export default class ApiSpotifyService {
          spotify_data: userData
       };
       return util.sendRequestPOST(`${ENUM.enderecosIP.SERVICO_USUARIO}/usuarios`, dados);
-      // http://usuarios:5001/usuarios
    }
 
    async getTopArtists(access_token) {

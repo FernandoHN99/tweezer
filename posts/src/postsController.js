@@ -11,6 +11,7 @@ class PostsController {
   async criarPost(req, res) {
     try {
       const postJSON = req.body;
+      console.log(postJSON);
       const novoPost = this.postsService.criarPostagemNova(postJSON);
       if(!novoPost){
         throw new Error(`Erro ao criar novo Post.`);

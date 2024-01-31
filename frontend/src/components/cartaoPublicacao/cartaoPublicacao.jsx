@@ -38,7 +38,7 @@ export default function CartaoPublicacao(props) {
 
     const interagirPublicacao = async () => {
       const options = {
-        url: `${ENUM.enderecosIP.SERVICO_POSTS}/posts/curtir`,
+        url: `${ENUM.enderecosIP.SERVICO_POSTS}/curtir`,
         body: { idPublicacao: props.id, idUsuario: usuarioData._id },
       };
       try {

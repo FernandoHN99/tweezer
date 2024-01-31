@@ -30,9 +30,9 @@ export default function TopGlobais() {
       const fetchData = async () => {
          try {
             const promises = [
-               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/api_spotify/top-globais/musicas`, undefined, undefined),
-               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/api_spotify/top-globais/albuns`, undefined, undefined),
-               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/api_spotify/top-globais/artistas`, undefined, undefined)
+               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/top-globais/musicas`, undefined, undefined),
+               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/top-globais/albuns`, undefined, undefined),
+               util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/top-globais/artistas`, undefined, undefined)
             ];
             const [returnDataTopMusicas, returnDataTopAlbuns, returnDataTopArtistas] = await Promise.all(promises);
 

@@ -13,7 +13,7 @@ export default function ReTweezers() {
    useEffect(() => {
       const fetchDataPostsFilhos = async () => {
          try {
-            const returnFilhosRelacioandos = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts/posts-filhos/${idPublicacao}`, undefined, undefined);
+            const returnFilhosRelacioandos = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_POSTS}/posts-filhos/${idPublicacao}`, undefined, undefined);
             if (!returnFilhosRelacioandos.status) {
                setPostsFilhos([])
                return;

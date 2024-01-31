@@ -88,7 +88,7 @@ export default function CriarPublicacao({ reTweezerIdMusica, reTweezerIdPostPai 
 
   const pegarRetweezer = async (idMusica) => {
     // console.log('idMusica: ', idMusica);
-    const { data } = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/api_spotify/buscarMusicasPorId/${idMusica}`, options.headers, undefined);
+    const { data } = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/buscarMusicasPorId/${idMusica}`, options.headers, undefined);
     if (data) {
       const musicaReTweezer = formatarMusicaRetweezer(data)
       handleItemClick(musicaReTweezer)
@@ -114,17 +114,16 @@ export default function CriarPublicacao({ reTweezerIdMusica, reTweezerIdPostPai 
         postsFilhos: []
       }
       // console.log('post: ', post);
-      const returnCriarPost = await util.sendRequestPOST(`${ENUM.enderecosIP.SERVICO_POSTS}/posts`, { post }, undefined);
+      const returnCriarPost = await util.sendRequestPOST(`${ENUM.enderecosIP.SERVICO_POSTS}`, { post }, undefined);
       return returnCriarPost.status;
     }
   }
 
   useEffect(() => {
-    // console.log('reTweezerIdPostPai: ', reTweezerIdPostPai);
-    // console.log('reTweezerIdMusica: ', reTweezerIdMusica);
+
     const chamadaBuscaAPI = async () => {
 
-      const { data } = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/api_spotify/buscarMusicas/${musicaBuscada}`, options.headers, undefined);
+      const { data } = await util.sendRequestGET(`${ENUM.enderecosIP.SERVICO_API_SPOTIFY}/buscarMusicas/${musicaBuscada}`, options.headers, undefined);
       if (data) {
         setListaMusicasEncontradas(data.musicasEncontradas)
       }

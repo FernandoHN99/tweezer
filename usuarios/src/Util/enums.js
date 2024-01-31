@@ -13,7 +13,6 @@ export default class ENUM {
       PORTA_POSTS: 5002,
       PORTA_BARRAMENTO: 10000,
       PORTA_API_SPOTIFY: 8888,
-      PORTA_FRONTEND: 3000,
     };
   }
 
@@ -23,10 +22,10 @@ export default class ENUM {
       SERVICO_POSTS: `http://posts:${ENUM.portas.PORTA_POSTS}`,
       SERVICO_BARRAMENTO: `http://barramento:${ENUM.portas.PORTA_BARRAMENTO}`,
       SERVICO_API_SPOTIFY: `http://apispotify:${ENUM.portas.PORTA_API_SPOTIFY}`,
-      SERVICO_API_SPOTIFY2: `http://localhost:${ENUM.portas.PORTA_API_SPOTIFY}`,
-      SERVICO_FRONTEND: `http://frontend:${ENUM.portas.PORTA_FRONTEND}`,
     };
   }
+
+  static URL_EXTERNA_FRONTEND = "http://tweezer.127.0.0.1.nip.io";
 
   static get tiposParamsTopGlobais() {
     return {
