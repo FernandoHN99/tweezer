@@ -1,6 +1,6 @@
 services:
    apispotify:
-      image: richkelman/tweezer-api-spotify:latest
+      image: richkelman/tweezer-api-spotify:v2
       depends_on:
          - barramento
       build:
@@ -12,7 +12,7 @@ services:
          - tweezer_net
 
    barramento:
-      image: richkelman/tweezer-barramento:latest
+      image: richkelman/tweezer-barramento:v2
       build:
          context: ./barramentoDeEventos
          dockerfile: ./Dockerfile
@@ -22,7 +22,7 @@ services:
          - tweezer_net
 
    frontend:
-      image: richkelman/tweezer-frontend:latest
+      image: richkelman/tweezer-frontend:v2
       depends_on:
          - apispotify
          - usuarios
@@ -36,7 +36,7 @@ services:
          - tweezer_net
 
    posts:
-      image: richkelman/tweezer-posts:latest
+      image: richkelman/tweezer-posts:v2
       depends_on:
          - barramento
       build:
@@ -48,7 +48,7 @@ services:
          - tweezer_net
 
    usuarios:
-      image: richkelman/tweezer-usuarios:latest
+      image: richkelman/tweezer-usuarios:v2
       build:
          context: ./usuarios
          dockerfile: ./Dockerfile
@@ -60,12 +60,12 @@ services:
          - tweezer_net
 
    nginx:
-      image: nginx:latest
+      image: nginx:1.25-alpine3.18-perl
+      volumes:
+        - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       build:
          context: ./nginx
          dockerfile: ./Dockerfile
-      extra_hosts:
-         - "nginx:127.0.0.1"
       depends_on:
          - apispotify
       ports:
