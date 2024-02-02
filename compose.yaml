@@ -61,8 +61,6 @@ services:
 
    nginx:
       image: richkelman/tweezer-nginx:v2
-      # volumes:
-      #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       build:
          context: ./nginx
          dockerfile: ./Dockerfile
