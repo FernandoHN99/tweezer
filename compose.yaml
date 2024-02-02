@@ -60,9 +60,9 @@ services:
          - tweezer_net
 
    nginx:
-      image: nginx:1.25-alpine3.18-perl
-      volumes:
-        - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      image: richkelman/tweezer-nginx:v2
+      # volumes:
+      #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       build:
          context: ./nginx
          dockerfile: ./Dockerfile
