@@ -1,0 +1,202 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apispotify
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apispotify
+  template:
+    metadata:
+      labels:
+        app: apispotify
+    spec:
+      containers:
+        - name: apispotify
+          image: richkelman/tweezer-api-spotify:v2
+          ports:
+            - containerPort: 8888
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: apispotify
+spec:
+  selector:
+    app: apispotify
+  ports:
+  - port: 8888
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: barramento
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: barramento
+  template:
+    metadata:
+      labels:
+        app: barramento
+    spec:
+      containers:
+        - name: barramento
+          image: richkelman/tweezer-barramento:v2
+          ports:
+            - containerPort: 10000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: barramento
+spec:
+  selector:
+    app: barramento
+  ports:
+  - port: 10000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: posts
+  template:
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+          image: richkelman/tweezer-posts:v2
+          ports:
+            - containerPort: 5002
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts
+spec:
+  selector:
+    app: posts
+  ports:
+  - port: 5002
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usuarios
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usuarios
+  template:
+    metadata:
+      labels:
+        app: usuarios
+    spec:
+      containers:
+        - name: usuarios
+          image: richkelman/tweezer-usuarios:v2
+          ports:
+            - containerPort: 5001
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: usuarios
+spec:
+  selector:
+    app: usuarios
+  ports:
+  - port: 5001
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: richkelman/tweezer-frontend:v2
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector:
+    app: frontend
+  ports:
+  - port: 3000
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: richkelman/tweezer-nginx:v2
+          # volumeMounts:
+          #   - mountPath: /etc/nginx/nginx.conf
+          #     name: nginx-config-volume
+          # volumes:
+          #   - name: nginx-config-volume
+          #     hostPath:
+          #       path: nginx.conf
+          ports:
+            - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: 8080
+    targetPort: 80
+    nodePort:  30000
+  type: NodePort  
